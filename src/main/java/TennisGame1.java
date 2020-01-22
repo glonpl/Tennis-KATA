@@ -69,21 +69,17 @@ public class TennisGame1 {
     }
 
     private String translateScore(int tempScore) {
-        String score = "";
+
         switch (tempScore) {
             case 0:
-                score = "Love";
-                break;
+                return "Love";
             case 1:
-                score = "Fifteen";
-                break;
+                return "Fifteen";
             case 2:
-                score = "Thirty";
-                break;
+                return "Thirty";
             case 3:
-                score = "Forty";
-                break;
+                return "Forty";
         }
-        return score;
+        return "";
     }
 }
