@@ -1,4 +1,3 @@
-
 public class TennisGame1 {
 
     private int m_score1 = 0;
@@ -22,10 +21,10 @@ public class TennisGame1 {
 
 
     public String getScore() {
-        if (m_score1 >= 3 && m_score1 == m_score2) {
+        if (isDeuce()) {
             return "Deuce";
         }
-        if (m_score1 == m_score2) {
+        if (isAll()) {
             return translateScore(m_score1) + "-All";
         }
         if (hasAdvantage()) {
@@ -36,6 +35,15 @@ public class TennisGame1 {
         }
         return translateScore(m_score1) + "-" + translateScore(m_score2);
     }
+/*==================================Booleans=========================================*/
+    private boolean isAll() {
+        return m_score1 == m_score2;
+    }
+
+    private boolean isDeuce() {
+        return m_score1 >= 3 && m_score1 == m_score2;
+    }
+
 
     private boolean hasWinner() {
         if (m_score2 >= 4 && m_score2 >= m_score1 + 2) {
@@ -55,7 +63,7 @@ public class TennisGame1 {
         return false;
 
     }
-
+    /*==================================Strings=========================================*/
     private String leadingName() {
         return (m_score1 > m_score2) ? player1Name : player2Name;
     }
