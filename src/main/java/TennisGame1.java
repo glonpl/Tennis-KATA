@@ -1,6 +1,6 @@
 
 public class TennisGame1 {
-    
+
     private int m_score1 = 0;
     private int m_score2 = 0;
     private String player1Name;
@@ -12,54 +12,43 @@ public class TennisGame1 {
     }
 
 
-    public void player1Score(){
+    public void player1Score() {
         m_score1 += 1;
     }
-    public void player2Score(){
+
+    public void player2Score() {
         m_score2 += 1;
     }
 
 
     public String getScore() {
         String score = "";
-        int tempScore=0;
-        if(m_score1>=3 && m_score1==m_score2){
+        int tempScore = 0;
+        if (m_score1 >= 3 && m_score1 == m_score2) {
             return "Deuce";
         }
-        if (m_score1==m_score2)
-        {
-
-            return translateScore(m_score1)+"-All";
-
+        if (m_score1 == m_score2) {
+            return translateScore(m_score1) + "-All";
         }
-
-
-
-            if(hasAdvantage()){
-                return "Advantage " + leadingName();
-            }
-            if (hasWinner()) {
-                return "Win for "+leadingName();
-            }
-
-        else
-        {
-            for (int i=1; i<3; i++)
-            {
-                if (i==1) tempScore = m_score1;
-                else { score+="-"; tempScore = m_score2;}
-                score += translateScore(tempScore);
-            }
+        if (hasAdvantage()) {
+            return "Advantage " + leadingName();
         }
-        return score;
+        if (hasWinner()) {
+            return "Win for " + leadingName();
+        }
+        return translateScore(m_score1) + "-" + translateScore(m_score2);
     }
+
     private boolean hasWinner() {
-        if (m_score2>= 4 && m_score2>=m_score1+2){
-            return true;}
-        if (m_score1>= 4 && m_score1>=m_score2+2){
-            return true;}
+        if (m_score2 >= 4 && m_score2 >= m_score1 + 2) {
+            return true;
+        }
+        if (m_score1 >= 4 && m_score1 >= m_score2 + 2) {
+            return true;
+        }
         return false;
     }
+
     private boolean hasAdvantage() {
         if (m_score2 >= 4 && m_score2 == m_score1 + 1)
             return true;
@@ -69,25 +58,25 @@ public class TennisGame1 {
         return false;
 
     }
+
     private String leadingName() {
-        return (m_score1>m_score2)?player1Name :player2Name;
+        return (m_score1 > m_score2) ? player1Name : player2Name;
     }
 
-    private String translateScore( int tempScore) {
-        String score="";
-        switch(tempScore)
-        {
+    private String translateScore(int tempScore) {
+        String score = "";
+        switch (tempScore) {
             case 0:
-                score="Love";
+                score = "Love";
                 break;
             case 1:
-                score="Fifteen";
+                score = "Fifteen";
                 break;
             case 2:
-                score="Thirty";
+                score = "Thirty";
                 break;
             case 3:
-                score="Forty";
+                score = "Forty";
                 break;
         }
         return score;
