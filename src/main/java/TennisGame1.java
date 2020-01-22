@@ -57,7 +57,7 @@ public class TennisGame1 {
         if (m_score2>= 4 && m_score2>=m_score1+2){
             return true;}
         if (m_score1>= 4 && m_score1>=m_score2+2){
-            return false;}
+            return true;}
         return false;
     }
     private boolean hasAdvantage() {
