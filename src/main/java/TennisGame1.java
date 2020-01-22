@@ -32,14 +32,16 @@ public class TennisGame1 {
             return translateScore(m_score1)+"-All";
 
         }
-        else if (m_score1>=4 || m_score2>=4)
-        {
-            int minusResult = m_score1-m_score2;
-            if (minusResult==1) score ="Advantage "+leadingName();
-            else if (minusResult ==-1) score ="Advantage "+leadingName();
-            else if (minusResult>=2) score = "Win for "+leadingName();
-            else score ="Win for "+leadingName();
-        }
+
+
+
+            if(hasAdvantage()){
+                return "Advantage " + leadingName();
+            }
+            if (hasWinner()) {
+                return "Win for "+leadingName();
+            }
+
         else
         {
             for (int i=1; i<3; i++)
@@ -51,7 +53,22 @@ public class TennisGame1 {
         }
         return score;
     }
+    private boolean hasWinner() {
+        if (m_score2>= 4 && m_score2>=m_score1+2){
+            return true;}
+        if (m_score1>= 4 && m_score1>=m_score2+2){
+            return false;}
+        return false;
+    }
+    private boolean hasAdvantage() {
+        if (m_score2 >= 4 && m_score2 == m_score1 + 1)
+            return true;
+        if (m_score1 >= 4 && m_score1 == m_score2 + 1)
+            return true;
 
+        return false;
+
+    }
     private String leadingName() {
         return (m_score1>m_score2)?player1Name :player2Name;
     }
