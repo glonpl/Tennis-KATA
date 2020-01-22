@@ -1,5 +1,5 @@
 
-public class TennisGame1 implements TennisGame {
+public class TennisGame1 {
     
     private int m_score1 = 0;
     private int m_score2 = 0;
@@ -11,12 +11,14 @@ public class TennisGame1 implements TennisGame {
         this.player2Name = player2Name;
     }
 
-    public void wonPoint(String playerName) {
-        if (playerName == "player1")
-            m_score1 += 1;
-        else
-            m_score2 += 1;
+
+    public void player1Score(){
+        m_score1 += 1;
     }
+    public void player2Score(){
+        m_score2 += 1;
+    }
+
 
     public String getScore() {
         String score = "";
