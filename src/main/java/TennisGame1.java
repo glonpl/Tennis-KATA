@@ -56,22 +56,27 @@ public class TennisGame1 {
             {
                 if (i==1) tempScore = m_score1;
                 else { score+="-"; tempScore = m_score2;}
-                switch(tempScore)
-                {
-                    case 0:
-                        score+="Love";
-                        break;
-                    case 1:
-                        score+="Fifteen";
-                        break;
-                    case 2:
-                        score+="Thirty";
-                        break;
-                    case 3:
-                        score+="Forty";
-                        break;
-                }
+                score = translateScore(score, tempScore);
             }
+        }
+        return score;
+    }
+
+    private String translateScore(String score, int tempScore) {
+        switch(tempScore)
+        {
+            case 0:
+                score+="Love";
+                break;
+            case 1:
+                score+="Fifteen";
+                break;
+            case 2:
+                score+="Thirty";
+                break;
+            case 3:
+                score+="Forty";
+                break;
         }
         return score;
     }
