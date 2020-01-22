@@ -22,8 +22,6 @@ public class TennisGame1 {
 
 
     public String getScore() {
-        String score = "";
-        int tempScore = 0;
         if (m_score1 >= 3 && m_score1 == m_score2) {
             return "Deuce";
         }
